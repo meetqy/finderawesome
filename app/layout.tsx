@@ -55,9 +55,7 @@ export default function RootLayout({
                 title="nextui.org homepage"
               >
                 <span className="text-default-600">Powered by</span>
-                <p className="text-primary">
-                  {siteConfig.site.replace(/http(s)?\:\/\//, "")}
-                </p>
+                <p className="text-primary capitalize">{siteConfig.name}</p>
               </Link>
             </footer>
           </div>

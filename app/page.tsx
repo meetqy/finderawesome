@@ -34,7 +34,7 @@ export default function Home() {
           {siteConfig.description}
         </h2>
       </div>
-      <div className="mt-12 grid w-full grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
+      <div className="mt-12 grid w-full grid-cols-1 gap-8 md:grid-cols-2 xl:grid-cols-4 lg:grid-cols-3">
         <Card>
           <CardHeader
             className="bg-foreground-900 text-background h-32 cursor-pointer transition-all"
