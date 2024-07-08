@@ -62,7 +62,7 @@ export default function Page() {
         </header>
         <ScrollShadow
           hideScrollBar
-          className="-mx-2 flex w-full justify-between gap-8"
+          className="-mx-2 flex w-full justify-between gap-8 sticky top-16 z-30"
           orientation="horizontal"
         >
           <Tabs

@@ -53,7 +53,11 @@ export default function Home() {
             <User
               className="justify-start"
               name={
-                <Link color="primary" href="https://github.com/birobirobiro">
+                <Link
+                  color="primary"
+                  isExternal
+                  href="https://github.com/birobirobiro"
+                >
                   @birobirobiro
                 </Link>
               }
