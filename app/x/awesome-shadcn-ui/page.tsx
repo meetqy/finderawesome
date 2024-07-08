@@ -16,25 +16,13 @@ import {
 import { lists, title, description, href } from "./data.json";
 import useHash from "@/hooks/use-hash";
 import { Link } from "@nextui-org/link";
-
-function formatURL(url = "") {
-  // Remove protocol (http, https, ftp, etc.) and www prefix if present
-  let formattedURL = url.replace(/(^\w+:|^)\/\//, "").replace(/^www\./, "");
-
-  // Remove special characters and keep only alphanumeric, hyphens, and underscores
-  formattedURL = formattedURL.replace(/[^\w\-]/g, "-").replace(/-+/g, "-");
-
-  // Convert to lowercase
-  formattedURL = formattedURL.toLowerCase();
-
-  return formattedURL.replace(/\s/, "-");
-}
+import slugify from "slugify";
 
 export default function Page() {
-  const hash = useHash() || formatURL(lists[0].title);
+  const hash = useHash();
 
   const data = lists.find(
-    (item) => formatURL(item.title) === hash?.replace("#", "")
+    (item) => slugify(item.title) === hash?.replace("#", "")
   );
 
   return (
@@ -72,10 +60,10 @@ export default function Page() {
             selectedKey={hash?.replace("#", "")}
           >
             {lists.map((tab) => {
-              const key = formatURL(tab.title);
+              const slug = slugify(tab.title);
 
               return (
-                <Tab key={key} as={Link} href={"#" + key} title={tab.title} />
+                <Tab key={slug} as={Link} href={"#" + slug} title={tab.title} />
               );
             })}
           </Tabs>
