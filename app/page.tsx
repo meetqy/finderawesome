@@ -9,6 +9,7 @@ import {
   User,
   Link,
 } from "@nextui-org/react";
+import list from "./data.json";
 
 export default function Home() {
   return (
@@ -35,39 +36,41 @@ export default function Home() {
         </h2>
       </div>
       <div className="mt-12 grid w-full grid-cols-1 gap-8 md:grid-cols-2 xl:grid-cols-4 lg:grid-cols-3">
-        <Card>
-          <CardHeader
-            className="bg-foreground-900 text-background h-32 cursor-pointer transition-all"
-            as={Link}
-            href={"/x/awesome-shadcn-ui"}
-          >
-            <h3 className="text-2xl">Awesome Shadcn UI</h3>
-          </CardHeader>
+        {list.map((item, index) => (
+          <Card key={index}>
+            <CardHeader
+              className="bg-foreground-900 text-background h-32 cursor-pointer transition-all"
+              as={Link}
+              href={`/x/${item.title
+                .replace(/\s/g, "-")
+                .toLocaleLowerCase()
+                .replace(/\./, "")}`}
+            >
+              <h3 className="text-2xl">{item.title}</h3>
+            </CardHeader>
 
-          <CardBody className="gap-y-4">
-            <p className="text-default-500">
-              A curated list of awesome Shadcn UI libraries, resources and
-              projects.
-            </p>
+            <CardBody className="gap-y-4">
+              <p className="text-default-500">{item.description}</p>
 
-            <User
-              className="justify-start"
-              name={
-                <Link
-                  color="primary"
-                  isExternal
-                  href="https://github.com/birobirobiro"
-                >
-                  @birobirobiro
-                </Link>
-              }
-              description="Front-end Developer"
-              avatarProps={{
-                src: "https://avatars.githubusercontent.com/u/22185823?v=4",
-              }}
-            />
-          </CardBody>
-        </Card>
+              <User
+                className="justify-start"
+                name={
+                  <Link
+                    color="primary"
+                    isExternal
+                    href={"https://github.com/" + item.username}
+                  >
+                    @{item.username}
+                  </Link>
+                }
+                description={item.bio}
+                avatarProps={{
+                  src: item.avatar,
+                }}
+              />
+            </CardBody>
+          </Card>
+        ))}
       </div>
     </section>
   );

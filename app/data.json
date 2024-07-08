@@ -1,0 +1,16 @@
+[
+  {
+    "title": "Awesome Shadcn UI",
+    "description": "A curated list of awesome Shadcn UI libraries, resources and projects.",
+    "username": "birobirobiro",
+    "bio": "Front-end Developer",
+    "avatar": "https://avatars.githubusercontent.com/u/22185823?v=4"
+  },
+  {
+    "title": "Awesome Vue.js",
+    "description": "A curated list of awesome things related to Vue.js",
+    "avatar": "https://avatars.githubusercontent.com/u/6128107?v=4",
+    "username": "vuejs",
+    "bio": "Your friendly JavaScript framework"
+  }
+]
